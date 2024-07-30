@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --primary-color: #000000;
+  --income-color: #268b50;
+  --expense-color: #ff1900;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(to bottom, #ffffff, #000000);
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  flex: 1;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+  border-radius: 8px;
+}
+
+.balance, .income, .expense {
+  text-align: center;
+}
+
+.income {
+  color: var(--income-color);
+}
+
+.expense {
+  color: var(--expense-color);
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.field input, .field select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dedede;
+  border-radius: 2px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  text-transform: uppercase;
+}
+
+.transaction-table {
+  max-height: 400px; /* altura fixa para permitir rolagem */
+  overflow-y: auto;
+}
+
+.transaction-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-table th, .transaction-table td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.transaction-table .column-type {
+  text-align: center;
+}
+
+.transaction-table .column-action {
+  text-align: center;
+}
+
+.transaction-table button {
+  background-color: var(--expense-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.transaction-table button:hover {
+  background-color: #e74c3c;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+body {
+  background-size: 100% 150%; /* Ajuste do tamanho do gradiente para telas menores */
+}
